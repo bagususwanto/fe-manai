@@ -271,7 +271,7 @@
 
 					if ($isLastActiveTab) {
 						if ($settings?.notificationEnabled ?? false) {
-							new Notification(`${title} • Open WebUI`, {
+							new Notification(`${title} • Manufacturing AI`, {
 								body: content,
 								icon: `${WEBUI_BASE_URL}/static/favicon.png`
 							});
@@ -658,7 +658,7 @@
 		<div class="flex flex-row h-screen">
 			<AppSidebar />
 
-			<div class="w-full flex-1 max-w-[calc(100%-4.5rem)]">
+			<div class="flex-1 w-full max-w-[calc(100%-4.5rem)]">
 				<slot />
 			</div>
 		</div>

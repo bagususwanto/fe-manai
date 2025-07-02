@@ -195,7 +195,7 @@
 </script>
 
 <svelte:head>
-	<title>#{channel?.name ?? 'Channel'} • Open WebUI</title>
+	<title>#{channel?.name ?? 'Channel'} • Manufacturing AI</title>
 </svelte:head>
 
 <div
@@ -205,13 +205,13 @@
 	id="channel-container"
 >
 	<PaneGroup direction="horizontal" class="w-full h-full">
-		<Pane defaultSize={50} minSize={50} class="h-full flex flex-col w-full relative">
+		<Pane defaultSize={50} minSize={50} class="relative flex flex-col w-full h-full">
 			<Navbar {channel} />
 
 			<div class="flex-1 overflow-y-auto">
 				{#if channel}
 					<div
-						class=" pb-2.5 max-w-full z-10 scrollbar-hidden w-full h-full pt-6 flex-1 flex flex-col-reverse overflow-auto"
+						class="scrollbar-hidden z-10 flex flex-col-reverse flex-1 pt-6 pb-2.5 w-full max-w-full h-full overflow-auto"
 						id="messages-container"
 						bind:this={messagesContainerElement}
 						on:scroll={(e) => {
@@ -246,7 +246,7 @@
 				{/if}
 			</div>
 
-			<div class=" pb-[1rem]">
+			<div class="pb-[1rem]">
 				<MessageInput
 					id="root"
 					{typingUsers}
@@ -279,15 +279,15 @@
 			{/if}
 		{:else if threadId !== null}
 			<PaneResizer
-				class="relative flex w-[3px] items-center justify-center bg-background group bg-gray-50 dark:bg-gray-850"
+				class="group relative flex justify-center items-center bg-background bg-gray-50 dark:bg-gray-850 w-[3px]"
 			>
-				<div class="z-10 flex h-7 w-5 items-center justify-center rounded-xs">
-					<EllipsisVertical className="size-4 invisible group-hover:visible" />
+				<div class="z-10 flex justify-center items-center rounded-xs w-5 h-7">
+					<EllipsisVertical className="invisible group-hover:visible size-4" />
 				</div>
 			</PaneResizer>
 
-			<Pane defaultSize={50} minSize={30} class="h-full w-full">
-				<div class="h-full w-full shadow-xl">
+			<Pane defaultSize={50} minSize={30} class="w-full h-full">
+				<div class="shadow-xl w-full h-full">
 					<Thread
 						{threadId}
 						{channel}
